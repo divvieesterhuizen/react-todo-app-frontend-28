@@ -15,7 +15,6 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   const API = process.env.REACT_APP_API || process.env.API;
-  console.log('api = ', API);
 
   // initial run
   useEffect(() => {
@@ -40,7 +39,7 @@ function App() {
       completed: false,
     };
     // DB
-    const res = await axios.post('/todos', newTodo);
+    const res = await axios.post(API + '/todos', newTodo);
     const data = await res.data;
     // UI
     setTodos([...todos, data]);
@@ -48,14 +47,14 @@ function App() {
 
   const deleteTodo = async (_id) => {
     //DB
-    await axios.delete(`/todos/${_id}`);
+    await axios.delete(API + `/todos/${_id}`);
 
     // UI
     setTodos(todos.filter((todo) => todo.id !== _id));
   };
 
   const updateTodo = async (todo) => {
-    await axios.put(`/todos/${todo.id}`, todo);
+    await axios.put(API + `/todos/${todo.id}`, todo);
   };
 
   const onCheck = (_id) => {
@@ -78,14 +77,14 @@ function App() {
 
   // Fetch Functions
   const fetchTodos = async () => {
-    const res = await axios.get('/todos');
+    const res = await axios.get(API + '/todos');
     const data = await res.data;
     console.log('todos fetched', data);
     return data;
   };
 
   // const fetchTodo = async (_id) => {
-  //   const res = await axios.get(`/todo/${_id}`);
+  //   const res = await axios.get(API + `/todo/${_id}`);
   //   const data = await res.data;
   //   return data;
   // };

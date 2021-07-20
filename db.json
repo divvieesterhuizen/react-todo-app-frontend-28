@@ -1,11 +1,6 @@
 {
   "todos": [
     {
-      "id": "491ba5d5-0f88-4cd6-a5b6-b2d0b3c85b00",
-      "title": "one",
-      "completed": false
-    },
-    {
       "id": "2a4bcf04-ae7c-421b-a68b-6a30d11a24b8",
       "title": "two",
       "completed": false
