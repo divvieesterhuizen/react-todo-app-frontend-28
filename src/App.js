@@ -14,9 +14,16 @@ import './App.css';
 function App() {
   const [todos, setTodos] = useState([]);
 
+  const API = process.env.REACT_APP_API || process.env.API;
+  console.log('api = ', API);
+
   // initial run
   useEffect(() => {
-    getTodos();
+    try {
+      getTodos();
+    } catch (err) {
+      console.log(err);
+    }
     // eslint-disable-next-line
   }, []);
 
