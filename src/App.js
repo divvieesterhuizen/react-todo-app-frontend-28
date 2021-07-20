@@ -73,6 +73,7 @@ function App() {
   const fetchTodos = async () => {
     const res = await axios.get('/todos');
     const data = await res.data;
+    console.log('todos fetched', data);
     return data;
   };
 
