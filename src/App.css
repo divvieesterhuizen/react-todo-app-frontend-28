@@ -1,0 +1,20 @@
+/* global / body */
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+/* navigation */
+.list-inline-item:not(:last-child) {
+  margin-right: 2rem;
+}
+
+/* components */
+.delete-icon {
+  color: red;
+}
+.delete-icon:hover {
+  cursor: pointer;
+  filter: grayscale(100);
+  transform: rotate(10deg);
+}
