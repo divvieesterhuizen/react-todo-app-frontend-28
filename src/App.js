@@ -13,6 +13,7 @@ import './App.css';
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const API = process.env.REACT_APP_API || process.env.API;
 
@@ -77,15 +78,18 @@ function App() {
 
   // Fetch Functions
   const fetchTodos = async () => {
+    setLoading(true);
     const res = await axios.get(API + '/todos');
     const data = await res.data;
-    console.log('todos fetched', data);
+    setLoading(false);
     return data;
   };
 
   // const fetchTodo = async (_id) => {
+  //   setLoading(true);
   //   const res = await axios.get(API + `/todo/${_id}`);
   //   const data = await res.data;
+  //   setLoading(false);
   //   return data;
   // };
 
@@ -95,7 +99,13 @@ function App() {
       <div className='container col-sm-6'>
         <Route exact path='/'>
           <AddTodo addTodo={addTodo} />
-          {todos.length ? (
+          {loading && (
+            <div>
+              <h3>Loading ...</h3>
+            </div>
+          )}
+
+          {!loading && todos.length ? (
             <Todos todos={todos} onCheck={onCheck} deleteTodo={deleteTodo} />
           ) : (
             <div>
