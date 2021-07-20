@@ -99,19 +99,25 @@ function App() {
       <div className='container col-sm-6'>
         <Route exact path='/'>
           <AddTodo addTodo={addTodo} />
-          {loading && (
+          {loading ? (
             <div>
               <h3>Loading ...</h3>
             </div>
-          )}
-
-          {!loading && todos.length ? (
-            <Todos todos={todos} onCheck={onCheck} deleteTodo={deleteTodo} />
           ) : (
-            <div>
-              <h3>No Todos to show</h3>
-              <p>Why not add one using the input field above.</p>
-            </div>
+            [
+              !loading && todos.length ? (
+                <Todos
+                  todos={todos}
+                  onCheck={onCheck}
+                  deleteTodo={deleteTodo}
+                />
+              ) : (
+                <div>
+                  <h3>No Todos to show</h3>
+                  <p>Why not add one using the input field above.</p>
+                </div>
+              ),
+            ]
           )}
         </Route>
         <Route exact path='/about'>
