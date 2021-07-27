@@ -22,7 +22,7 @@ npm run dev
 
 npm test
 
-Builds the frontend app for production to the `build` folder
+# Builds the frontend app for production to the `build` folder
 
 npm run build
 
