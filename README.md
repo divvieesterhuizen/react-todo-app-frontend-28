@@ -1,6 +1,6 @@
 # React Todo App
 
-Simple React based Todo App, pulling data from an JSON-server endpoint.
+React based Todo App, pulling data from an JSON-server endpoint.
 
 ## Quick Start
 
