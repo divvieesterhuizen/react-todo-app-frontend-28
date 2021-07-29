@@ -15,11 +15,14 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const API = process.env.REACT_APP_API;
-  if (!API) {
-    alert(
-      'API URL not found in process.env. Application will not work until you add an value for API in your environment variables.'
-    );
+  try {
+    const API = process.env.REACT_APP_API;
+  } catch (err) {
+    if (!API) {
+      alert(
+        'API URL not found in process.env. Application will not work until you add an value for API in your environment variables.'
+      );
+    }
   }
 
   // initial run
