@@ -16,16 +16,16 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const API = process.env.REACT_APP_API || process.env.API;
+  if (!API) {
+    alert(
+      'API URL not found in process.env. Application will not work until you add an value for API in your environment variables.'
+    );
+  }
 
   // initial run
   useEffect(() => {
-    let isSubscribed = true;
-
     try {
-      if (isSubscribed) {
-        getTodos();
-        isSubscribed = false;
-      }
+      getTodos();
     } catch (err) {
       console.log(err);
     }
