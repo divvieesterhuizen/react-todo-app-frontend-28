@@ -15,7 +15,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const API = process.env.API || process.env.REACT_APP_API;
+  const API = process.env.REACT_APP_API || process.env.API;
 
   // initial run
   useEffect(() => {
