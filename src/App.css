@@ -13,7 +13,13 @@ a:visited {
 .delete-icon {
   color: red;
 }
-.delete-icon:hover {
+.edit-icon {
+  color: green;
+}
+[class$='-icon'] {
+  margin-left: 20px;
+}
+[class$='-icon']:hover {
   cursor: pointer;
   filter: grayscale(100);
   transform: rotate(10deg);

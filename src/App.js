@@ -19,8 +19,13 @@ function App() {
 
   // initial run
   useEffect(() => {
+    let isSubscribed = true;
+
     try {
-      getTodos();
+      if (isSubscribed) {
+        getTodos();
+        isSubscribed = false;
+      }
     } catch (err) {
       console.log(err);
     }
@@ -76,6 +81,24 @@ function App() {
     updateTodo(updatedTodo);
   };
 
+  const updateTodoText = async (_id, text) => {
+    let todoFromServer = await fetchTodo(_id);
+    todoFromServer.title = text;
+
+    // UI + assign updated Todo
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === _id) {
+          todo.title = text;
+        }
+        return todo;
+      })
+    );
+
+    // DB
+    updateTodo(todoFromServer);
+  };
+
   // Fetch Functions
   const fetchTodos = async () => {
     setLoading(true);
@@ -85,13 +108,13 @@ function App() {
     return data;
   };
 
-  // const fetchTodo = async (_id) => {
-  //   setLoading(true);
-  //   const res = await axios.get(API + `/todo/${_id}`);
-  //   const data = await res.data;
-  //   setLoading(false);
-  //   return data;
-  // };
+  const fetchTodo = async (_id) => {
+    setLoading(true);
+    const res = await axios.get(API + `/todos/${_id}`);
+    const data = await res.data;
+    setLoading(false);
+    return data;
+  };
 
   return (
     <Router>
@@ -110,6 +133,7 @@ function App() {
                   todos={todos}
                   onCheck={onCheck}
                   deleteTodo={deleteTodo}
+                  updateTodoText={updateTodoText}
                 />
               ) : (
                 <div>

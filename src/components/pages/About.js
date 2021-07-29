@@ -4,9 +4,7 @@ const About = () => {
   return (
     <div>
       <h1>About</h1>
-      <p>
-        Simple React based Todo App, pulling data from an JSON-server endpoint.
-      </p>
+      <p>Simple React based Todo App.</p>
     </div>
   );
 };

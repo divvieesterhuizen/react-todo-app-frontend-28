@@ -1,7 +1,7 @@
 import React from 'react';
 import Todo from './Todo';
 
-const Todos = ({ todos, onCheck, deleteTodo }) => {
+const Todos = ({ todos, onCheck, deleteTodo, updateTodoText }) => {
   return (
     <>
       {todos.map((todo, index) => (
@@ -10,6 +10,7 @@ const Todos = ({ todos, onCheck, deleteTodo }) => {
           todo={todo}
           onCheck={onCheck}
           deleteTodo={deleteTodo}
+          updateTodoText={updateTodoText}
         />
       ))}
     </>

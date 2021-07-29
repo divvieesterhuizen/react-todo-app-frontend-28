@@ -1,6 +1,6 @@
 # React Todo App
 
-React based Todo App, pulling data from an JSON-server endpoint.
+React based Todo App, pulling data from an JSON-server endpoint with full CRUD functionality.
 
 DEMO: https://react-todo-app-frontend-28.herokuapp.com/
 
