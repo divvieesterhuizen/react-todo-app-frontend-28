@@ -23,13 +23,13 @@ const Todo = ({ todo, onCheck, deleteTodo, updateTodoText }) => {
         setAlert(false);
       }, 3000);
     } else {
-      updateTodoText(id, text);
       clearFields();
       setShowEditBox(false);
       setUpdatedTodoAlert(true);
       setTimeout(() => {
         setUpdatedTodoAlert(false);
       }, 3000);
+      updateTodoText(id, text);
     }
   };
 
