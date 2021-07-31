@@ -28,8 +28,9 @@ const Todo = ({ todo, onCheck, deleteTodo, updateTodoText }) => {
       setUpdatedTodoAlert(true);
       setTimeout(() => {
         setUpdatedTodoAlert(false);
-      }, 3000);
-      updateTodoText(id, text);
+        // fix unmounted component update error
+        updateTodoText(id, text);
+      }, 500);
     }
   };
 

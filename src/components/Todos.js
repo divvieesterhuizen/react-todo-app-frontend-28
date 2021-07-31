@@ -3,7 +3,7 @@ import Todo from './Todo';
 
 const Todos = ({ todos, onCheck, deleteTodo, updateTodoText }) => {
   return (
-    <>
+    <div>
       {todos.map((todo, index) => (
         <Todo
           key={index}
@@ -13,7 +13,7 @@ const Todos = ({ todos, onCheck, deleteTodo, updateTodoText }) => {
           updateTodoText={updateTodoText}
         />
       ))}
-    </>
+    </div>
   );
 };
 
