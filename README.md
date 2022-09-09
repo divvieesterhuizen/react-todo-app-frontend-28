@@ -2,10 +2,6 @@
 
 React based Todo App, pulling data from an JSON-server endpoint with full CRUD functionality.
 
-DEMO: https://react-todo-app-frontend-28.herokuapp.com/
-
-See BACKEND working with Frontend App: https://react-todo-app-backend-28.herokuapp.com/todos
-
 ## Quick Start
 
 ```
@@ -31,17 +27,3 @@ npm test
 npm run build
 
 ```
-
-## App Info
-
-### Author
-
-Divvie Esterhuizen
-
-### Version
-
-1.0.0
-
-### License
-
-This project is licensed under the MIT License
